@@ -1,0 +1,20 @@
+.container_profile{    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container_item_profile{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em 0;
+    padding: 1em;
+    font-size: 1.5em;
+    border-radius: 1em;
+    border: 0.1em solid #6a6e8a;
+    color: #6a6e8a;
+    background-color: #FFD7D7;
+    text-decoration: none;
+}

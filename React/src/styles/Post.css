@@ -1,0 +1,100 @@
+.container_post{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*-------------- author of Post ---------------*/
+.content_modify_post{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em 0;
+    color: #6a6e8a;
+    background-color: #FFD7D7;
+    box-shadow: 0.2em 0.2em 0.2em #4E5166;
+    border-radius: 1em;
+    border: 0.1em solid #6a6e8a;
+}
+.title_modify_post{
+    text-align: center;
+}
+.form_modify_post{
+    display: flex;
+    flex-direction: column;
+}
+.label_modify_post { 
+    width: 60%;    
+    font-size: 1.5em;
+    margin: 0.5em 0;
+}
+.input_modify_post{
+    width: 90%;
+    font-size: 1.3em;
+    border-radius: 0.5em;
+    margin: 0.5em 0;
+    padding: 0.2em;
+    border: 0.1em solid #6a6e8a;
+}
+.btn_div{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.btn_deletepost, .btn_modifypost{
+    font-size: 1.3em;
+    border-radius: 1em;
+    margin: 0.5em 0;
+    padding: 0.2em 0.7em;
+    border: 0.1em solid #6a6e8a;
+    box-shadow: 0.2em 0.2em 0.2em #4E5166;
+    color: #6a6e8a;
+    background-color: #FFD7D7;
+}
+.btn_deletepost:hover, .btn_modifypost:hover{
+    border: 0.1em solid #FFD7D7;
+    color: #FFD7D7;
+    background-color: #6a6e8a;
+}
+/*------------ Not author of Post -------------*/
+.content_post{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em 0;
+    color: #6a6e8a;
+    background-color: #FFD7D7;
+    box-shadow: 0.2em 0.2em 0.2em #4E5166;
+    border-radius: 1em;
+    border: 0.1em solid #6a6e8a;
+}
+.title_post{
+    width: 60%;
+    text-align: center;
+    background-color: #FFD7D7;
+}
+/*------------------- Like --------------------*/
+.container_like{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+}
+.number_of_like{
+    margin: 1em;
+}
+.div_author_like{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.div_author_text{
+    width: 8.5em;
+    display: flex;
+    justify-content: space-between;
+}
+.p_author_like{
+    font-size: 1.3em;
+}

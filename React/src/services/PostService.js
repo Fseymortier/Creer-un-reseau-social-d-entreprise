@@ -1,0 +1,32 @@
+import http from '../http-common'
+import authHeader from './auth-header'
+
+async function getAll() {
+    const response = await http.get('/posts', { headers: authHeader() })
+    return response.data
+}
+async function get(id) {
+    const response = await http.get(`/posts/${id}`, { headers: authHeader() })
+    return response.data
+}
+function create(data) {
+    return http.post('/posts', data, { headers: authHeader() })
+}
+function update(id, data) {
+    return http.put(`/posts/${id}`, data, { headers: authHeader() })
+}
+function remove(id) {
+    return http.delete(`/posts/${id}`, { headers: authHeader() })
+}
+function findByTitle(title) {
+    return http.get(`/posts?title=${title}`, { headers: authHeader() })
+}
+const PostService = {
+    getAll,
+    get,
+    create,
+    update,
+    remove,
+    findByTitle,
+}
+export default PostService
