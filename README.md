@@ -7,6 +7,7 @@ Pour lancer NodeJs télécharger WampServer64 à l'adresse suivante: https://www
 Télécharger NodeJs à l'adresse suivante: https://nodejs.org/fr/download/
 
 Verfier les versions de Node et npm avec les commandes suivantes:
+
 Node --version
 npm --version
 
