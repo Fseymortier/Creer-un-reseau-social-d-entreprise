@@ -20,4 +20,4 @@ Puis dans l'invité de commande positionner vous dans le dossier NodeJs et lance
 
 #React
 
-Placer vous dans le dossier React et lancer la commande: npm start
+Placer vous dans le dossier React avec l'invité de commande et lancer la commande: npm start
