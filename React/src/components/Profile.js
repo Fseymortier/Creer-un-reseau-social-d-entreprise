@@ -9,12 +9,10 @@ const Profile = () => {
             <h1>Profile</h1>
             <div className="container_item_profile">
                 <p>
-                    <strong>Pseudo:</strong>
-                    {currentUser.nickname}
+                    <strong>Pseudo:</strong> {currentUser.nickname}
                 </p>
                 <p>
-                    {' '}
-                    <strong>Email:</strong> {currentUser.email}{' '}
+                    <strong>Email:</strong> {currentUser.email}
                 </p>
             </div>
         </div>

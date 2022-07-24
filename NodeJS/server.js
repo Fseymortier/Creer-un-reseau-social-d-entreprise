@@ -4,7 +4,6 @@ const app = express()
 const userRoutes = require('./app/routes/user.routes')
 const postRoutes = require('./app/routes/post.routes')
 const likeRoutes = require('./app/routes/like.route')
-const commentRoutes = require('./app/routes/comment.route')
 var corsOptions = {
     origin: 'http://localhost:8081',
 }
@@ -15,19 +14,16 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 const db = require('./app/models')
-db.sequelize.sync()
+db.sequelize.sync({ force: true })
 // simple route
 app.get('/', (req, res) => {
     res.json({ message: 'Bienvenue sur Groupomania.' })
 })
-
+app.use('/images', express.static('./app/images'))
 app.use('/api', userRoutes)
 app.use('/api/posts', postRoutes)
 app.use('/api/likes', likeRoutes)
-app.use('/api/comments', commentRoutes)
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}.`)
-})
+app.listen(PORT)

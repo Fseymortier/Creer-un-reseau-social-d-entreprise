@@ -6,7 +6,6 @@ import '../../styles/PostList.css'
 
 const PostList = () => {
     const [posts, setPosts] = useState([])
-    const [searchTitle, setSearchTitle] = useState('')
     useEffect(() => {
         async function retrievePosts() {
             const response = await PostDataService.getAll()
@@ -14,20 +13,7 @@ const PostList = () => {
         }
         retrievePosts()
     }, [])
-    function onChangeSearchTitle(e) {
-        const searchTitle = e.target.value
-        setSearchTitle(searchTitle)
-    }
 
-    const findByTitle = () => {
-        PostDataService.findByTitle(searchTitle)
-            .then(response => {
-                setPosts(response.data)
-            })
-            .catch(e => {
-                console.log(e)
-            })
-    }
     return (
         <div className="container_postList">
             <h1>Liste des Posts</h1>
@@ -40,8 +26,13 @@ const PostList = () => {
                     >
                         <h1 className="post_title">{post.title}</h1>
                         <p>{post.description}</p>
+                        <img
+                            className="postList_img"
+                            src={post.imageUrl}
+                            alt="téléchargé par un utilisateur"
+                        />
                         <div className="author_like">
-                            <p>{post.author}</p>
+                            <p>Auteur: {post.author}</p>
                         </div>
                     </Link>
                 ))}

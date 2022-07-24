@@ -11,6 +11,15 @@ exports.signup = (req, res) => {
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 8),
     })
+        .then(() => {
+            res.send({ message: 'Création du compte réussi' })
+        })
+        .catch((err) => {
+            res.status(500).send({
+                message:
+                    'Une erreur est survenue pendant la création du compte.',
+            })
+        })
 }
 exports.signin = (req, res) => {
     //find user
@@ -36,7 +45,7 @@ exports.signin = (req, res) => {
                 //if match sign token
                 expiresIn: 86400, // 24 hours
             })
-            res.status(200).send({
+            return res.status(200).send({
                 //attribute token to user
                 id: User.id,
                 nickname: User.nickname,

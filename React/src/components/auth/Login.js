@@ -10,7 +10,7 @@ const required = value => {
     if (!value) {
         return (
             <div className="alert alert-danger" role="alert">
-                This field is required!
+                Ces champs sont requis
             </div>
         )
     }
@@ -57,11 +57,6 @@ const Login = () => {
         <div className="container_form">
             <Form className="form_login" onSubmit={handleLogin} ref={form}>
                 <div className="container_login">
-                    <img
-                        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-                        alt="profile-img"
-                        className="profile_img"
-                    />
                     <label className="label_login" htmlFor="email">
                         E-mail
                         <Input

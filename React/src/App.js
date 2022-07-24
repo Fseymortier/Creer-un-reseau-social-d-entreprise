@@ -11,7 +11,6 @@ import AddPost from './components/post/AddPost'
 import PostList from './components/post/PostList'
 import Post from './components/post/Post'
 import Like from './components/post/like'
-import Comment from './components/post/Comment'
 
 function App() {
     return (
@@ -28,7 +27,6 @@ function App() {
                 <Route path="/add" element={<AddPost />} />
                 <Route path="/posts/:id" element={<Post />} />
                 <Route path="/likes/:id" element={<Like />} />
-                <Route path="/comments/:id" element={<Comment />} />
             </Routes>
             <footer>
                 <ul className="ul_footer">

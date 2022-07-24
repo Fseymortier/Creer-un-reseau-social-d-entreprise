@@ -1,15 +1,15 @@
 const db = require('../models')
 const Like = db.like
-const { Op } = require('sequelize')
+const Op = db.Sequelize.Op
 
 exports.like = (req, res) => {
-    const postId = req.body.postId
-    const userId = req.body.userId
+    const postId = req.params.id
+    const userId = req.userId
     async function like() {
         const verifIfLiked = await Like.findOne({
-            where: { [Op.and]: [{ postId: postId }, { userId: userId }] },
+            where: [{ postId: postId }, { userId: userId }],
         })
-        if (verifIfLiked === null) {
+        if (!verifIfLiked) {
             const like = {
                 postId: postId,
                 userId: userId,
@@ -22,11 +22,17 @@ exports.like = (req, res) => {
     like()
 }
 exports.getAll = (req, res) => {
-    Like.findAll()
+    const postId = req.params.id
+    var condition = { postId: postId }
+    Like.findAll({ where: condition })
         .then((data) => {
             res.send(data)
         })
-        .catch((error) => {
-            res.status(500).send({ error })
+        .catch((err) => {
+            res.status(500).send({
+                message:
+                    err.message ||
+                    'Une erreur est survenue pendant la recherche des posts.',
+            })
         })
 }

@@ -1,3 +1,8 @@
+:root{
+    --primary: #FD2D01;
+    --secondary: #FFD7D7;
+    --tertiary: #4E5166;
+  }
 .container_addpost{
     width: 100%;
     display: flex;
@@ -14,12 +19,12 @@
     padding: 1em;
     border-radius: 1em;
     border: 0.1em solid #6a6e8a;
-    color: #6a6e8a;
-    background-color: #FFD7D7;
+    color: var(--secondary);
+    background-color: var(--tertiary);
     box-shadow: 0.2em 0.2em 0.2em #4E5166;
 }
 #input_search::placeholder{
-    color: #6a6e8a;
+    color: var(--secondary);
 }
 .label_addpost{ 
     width: 60%;       
@@ -39,15 +44,15 @@
     border-radius: 1em;
     margin: 0.5em 0;
     padding: 0.2em 0.7em;
-    border: 0.1em solid #6a6e8a;
+    border: 0.1em solid var(--secondary);
     box-shadow: 0.2em 0.2em 0.2em #4E5166;
-    color: #6a6e8a;
-    background-color: #FFD7D7;
+    color: var(--secondary);
+    background-color: var(--tertiary);
 }
 .btn_addpost:hover{
-    border: 0.1em solid #FFD7D7;
-    color: #FFD7D7;
-    background-color: #6a6e8a;
+    border: 0.1em solid var(--tertiary);
+    color: var(--tertiary);
+    background-color: var(--secondary);
 }
 .author_like{
     width: 80%;

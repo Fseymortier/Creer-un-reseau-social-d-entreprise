@@ -10,30 +10,27 @@ const RatePost = () => {
     const currentUser = AuthService.getCurrentUser()
     const currentPostId = id
     const [likes, setLikes] = useState([])
-    const [compteur, setcompteur] = useState(0)
 
     useEffect(() => {
         async function getLikes() {
-            const response = await LikeService.getAll()
+            const response = await LikeService.getAll(id)
             setLikes(response)
         }
         getLikes()
     }, [])
+
     function handleLike(e) {
         e.preventDefault()
-        const like = {
+        var data = {
             postId: currentPostId,
             userId: currentUser.id,
         }
-        LikeService.like(like)
+        LikeService.like(id, data)
         window.location.reload()
     }
     function VerifyRate() {
         let verifyLike = false
         for (var z = 0; z < likes.length; z++) {
-            if (likes[z].postId == currentPostId) {
-                setcompteur(+1)
-            }
             if (
                 likes[z].postId == currentPostId &&
                 likes[z].userId == currentUser.id
@@ -61,7 +58,7 @@ const RatePost = () => {
     return (
         <div className="container_like">
             <VerifyRate />
-            <p className="number_of_like">{compteur}</p>
+            <p className="number_of_like">{likes.length}</p>
         </div>
     )
 }

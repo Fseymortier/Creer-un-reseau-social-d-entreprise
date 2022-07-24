@@ -18,15 +18,11 @@ function update(id, data) {
 function remove(id) {
     return http.delete(`/posts/${id}`, { headers: authHeader() })
 }
-function findByTitle(title) {
-    return http.get(`/posts?title=${title}`, { headers: authHeader() })
-}
 const PostService = {
     getAll,
     get,
     create,
     update,
     remove,
-    findByTitle,
 }
 export default PostService

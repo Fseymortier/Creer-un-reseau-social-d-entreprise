@@ -1,3 +1,3 @@
 module.exports = {
-    secret: "florian-secret-key"
-  };
+    secret: 'florian-secret-key',
+}

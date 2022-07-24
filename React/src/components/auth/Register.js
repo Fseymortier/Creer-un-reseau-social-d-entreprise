@@ -39,7 +39,8 @@ const vpassword = value => {
     if (value.length < 6 || value.length > 40) {
         return (
             <div className="alert alert-danger" role="alert">
-                Votre dois contenir un minimum de 6 caractères et maximum 40.
+                Votre mot de passe dois contenir un minimum de 6 caractères et
+                maximum 40.
             </div>
         )
     }
@@ -70,11 +71,12 @@ const Register = () => {
         setMessage('')
         form.current.validateAll()
         if (checkBtn.current.context._errors.length === 0) {
-            AuthService.register(nickname, email, password).then(
-                response => {
-                    setMessage(response.data.message)
-                },
-                error => {
+            AuthService.register(nickname, email, password)
+                .then(response => {
+                    setMessage(response)
+                    navigate('/signin')
+                })
+                .catch(error => {
                     const resMessage =
                         (error.response &&
                             error.response.data &&
@@ -82,20 +84,13 @@ const Register = () => {
                         error.message ||
                         error.toString()
                     setMessage(resMessage)
-                }
-            )
-            navigate('/signin')
+                })
         }
     }
     return (
         <div className="container_form">
             <Form className="form_signup" onSubmit={handleRegister} ref={form}>
                 <div className="container_signup">
-                    <img
-                        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-                        alt="profile-img"
-                        className="profile_img"
-                    />
                     <label className="label_signup" htmlFor="nickname">
                         Pseudo
                         <Input

@@ -1,4 +1,9 @@
-.container_post{
+:root{
+    --primary: #FD2D01;
+    --secondary: #FFD7D7;
+    --tertiary: #4E5166;
+}
+.container_post, .form_modifyPost{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -11,11 +16,11 @@
     flex-direction: column;
     align-items: center;
     margin: 1em 0;
-    color: #6a6e8a;
-    background-color: #FFD7D7;
+    color: var(--secondary);
+    background-color: var(--tertiary);
     box-shadow: 0.2em 0.2em 0.2em #4E5166;
     border-radius: 1em;
-    border: 0.1em solid #6a6e8a;
+    border: 0.1em solid var(--secondary);
 }
 .title_modify_post{
     text-align: center;
@@ -35,7 +40,7 @@
     border-radius: 0.5em;
     margin: 0.5em 0;
     padding: 0.2em;
-    border: 0.1em solid #6a6e8a;
+    border: 0.1em solid var(--secondary);
 }
 .btn_div{
     width: 100%;
@@ -47,15 +52,15 @@
     border-radius: 1em;
     margin: 0.5em 0;
     padding: 0.2em 0.7em;
-    border: 0.1em solid #6a6e8a;
+    border: 0.1em solid var(--secondary);
     box-shadow: 0.2em 0.2em 0.2em #4E5166;
-    color: #6a6e8a;
-    background-color: #FFD7D7;
+    color: var(--secondary);
+    background-color: var(--tertiary);
 }
 .btn_deletepost:hover, .btn_modifypost:hover{
-    border: 0.1em solid #FFD7D7;
-    color: #FFD7D7;
-    background-color: #6a6e8a;
+    border: 0.1em solid var(--tertiary);
+    color: var(--tertiary);
+    background-color: var(--secondary);
 }
 /*------------ Not author of Post -------------*/
 .content_post{
@@ -64,16 +69,16 @@
     flex-direction: column;
     align-items: center;
     margin: 1em 0;
-    color: #6a6e8a;
-    background-color: #FFD7D7;
+    color: var(--secondary);
+    background-color: var(--tertiary);
     box-shadow: 0.2em 0.2em 0.2em #4E5166;
     border-radius: 1em;
-    border: 0.1em solid #6a6e8a;
+    border: 0.1em solid var(--secondary);
 }
 .title_post{
     width: 60%;
     text-align: center;
-    background-color: #FFD7D7;
+    background-color: var(--tertiary);
 }
 /*------------------- Like --------------------*/
 .container_like{
@@ -91,7 +96,7 @@
     justify-content: space-around;
 }
 .div_author_text{
-    width: 8.5em;
+    width: 6em;
     display: flex;
     justify-content: space-between;
 }
