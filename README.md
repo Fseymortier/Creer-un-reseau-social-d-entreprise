@@ -14,7 +14,7 @@ npm --version
 
 Lancer WampServer64
 
-Créer la base de donnée "groupomania" dans l'interface mysql de phpMyAdmin
+Créer la base de donnée nomée "groupomania" vierge dans l'interface mysql de phpMyAdmin via votre navigateur ou via WampServer64
 
 Puis dans l'invité de commande positionner vous dans le dossier NodeJs et lancer la commande suivante: node server.js
 
