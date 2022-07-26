@@ -20,4 +20,6 @@ Puis dans l'invité de commande positionner vous dans le dossier NodeJs et lance
 
 #React
 
+Installez React avec la commande suivante: npm i
+
 Placer vous dans le dossier React avec l'invité de commande et lancer la commande: npm start
