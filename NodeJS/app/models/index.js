@@ -18,6 +18,8 @@ db.user = require('./user.model.js')(sequelize, Sequelize)
 db.post = require('./post.model.js')(sequelize, Sequelize)
 db.like = require('./like.model.js')(sequelize, Sequelize)
 
+db.post.hasMany(db.like, { onDelete: 'cascade' })
+db.like.belongsTo(db.post, { onDelete: 'cascade' })
 // User relationship with post
 
 module.exports = db

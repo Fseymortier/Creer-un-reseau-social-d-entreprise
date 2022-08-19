@@ -16,16 +16,16 @@ async function login(email, password) {
         password,
     })
     if (response.data.accessToken) {
-        sessionStorage.setItem('user', JSON.stringify(response.data))
+        localStorage.setItem('user', JSON.stringify(response.data))
     }
     return response.data
 }
 function logout() {
-    sessionStorage.removeItem('user')
+    localStorage.removeItem('user')
     Navigate('/')
 }
 function getCurrentUser() {
-    return JSON.parse(sessionStorage.getItem('user'))
+    return JSON.parse(localStorage.getItem('user'))
 }
 const AuthService = {
     register,

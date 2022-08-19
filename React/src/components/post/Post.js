@@ -51,7 +51,7 @@ const Post = () => {
         PostService.remove(id)
             .then(() => {
                 setMessage('Le Post à bien été supprimé')
-                //navigate('/posts')
+                navigate('/posts')
             })
             .catch(() => {
                 setMessage('Erreur pendant la suppression du post')

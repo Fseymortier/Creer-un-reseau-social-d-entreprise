@@ -9,7 +9,7 @@ const PostList = () => {
     useEffect(() => {
         async function retrievePosts() {
             const response = await PostDataService.getAll()
-            setPosts(response)
+            setPosts(response.reverse())
         }
         retrievePosts()
     }, [])

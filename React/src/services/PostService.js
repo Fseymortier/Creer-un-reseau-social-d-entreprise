@@ -15,8 +15,11 @@ function create(data) {
 function update(id, data) {
     return http.put(`/posts/${id}`, data, { headers: authHeader() })
 }
-function remove(id) {
-    return http.delete(`/posts/${id}`, { headers: authHeader() })
+async function remove(id) {
+    const response = await http.delete(`/posts/${id}`, {
+        headers: authHeader(),
+    })
+    return response
 }
 const PostService = {
     getAll,
