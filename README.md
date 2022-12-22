@@ -8,7 +8,7 @@ Télécharger NodeJs à l'adresse suivante: https://nodejs.org/fr/download/
 
 Verfier les versions de Node et npm avec les commandes suivantes:
 
-Node --version
+node --version
 
 npm --version
 
@@ -19,7 +19,5 @@ Créer la base de donnée nomée "groupomania" vierge dans l'interface mysql de 
 Puis dans l'invité de commande positionner vous dans le dossier NodeJs et lancer la commande suivante: node server.js
 
 #React
-
-Installez React avec la commande suivante: npm i
 
 Placer vous dans le dossier React avec l'invité de commande et lancer la commande: npm start
