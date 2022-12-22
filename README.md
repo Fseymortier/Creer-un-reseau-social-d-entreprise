@@ -2,17 +2,17 @@
 
 #NodeJs
 
-Pour lancer NodeJs télécharger WampServer64 à l'adresse suivante: https://www.wampserver.com/
-
 Télécharger NodeJs à l'adresse suivante: https://nodejs.org/fr/download/
 
-Verfier les versions de Node et npm avec les commandes suivantes:
+Pour corréler NodeJs avec la base donnée télécharger WampServer64 à l'adresse suivante: https://www.wampserver.com/
 
-node --version
+Verfier que les dernières versions de Node et npm sont installées avec les commandes suivantes:
 
-npm --version
+  node --version
 
-Lancer WampServer64
+  npm --version
+
+Exécuter et lancer WampServer64
 
 Créer la base de donnée nomée "groupomania" vierge dans l'interface mysql de phpMyAdmin via votre navigateur ou via WampServer64
 
