@@ -18,12 +18,12 @@ Pour corréler NodeJs avec la base de donnée télécharger WampServer64 à l'ad
 
 Exécuter WampServer64
 
-Créer la base de données nommée "groupomania" dans votre navigateur à l'url suivanté: "localhost/phpmyadmin"
+Créer la base de données nommée "groupomania" dans votre navigateur à l'url suivante : "localhost/phpmyadmin"
 
 
 # Lancer le projet
 
-Dans l'invité de commande Powershell en mode administrateur, positionner vous dans le dossier NodeJs et lancer la commande suivante : node server.js 
+Dans l'invité de commande Powershell en mode administrateur, positionner vous dans le dossier NodeJs et lancer la commande : node server.js 
 
 Dans l'invité de commande Powershell en mode administrateur, positionner vous dans le dossier React et lancer la commande : npm start 
 
