@@ -27,3 +27,4 @@ Dans l'invité de commande Powershell en mode administrateur, positionner vous d
 
 Dans l'invité de commande Powershell en mode administrateur, positionner vous dans le dossier React et lancer la commande : npm start 
 
+Puis entrer dans votre navigateur l'url : "http://localhost:8081/"
