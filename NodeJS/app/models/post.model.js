@@ -1,9 +1,9 @@
 module.exports = (sequelize, Sequelize) => {
-    var Post = sequelize.define('posts', {
-        author: { type: Sequelize.STRING },
+    var Post = sequelize.define("posts", {
+        author: { type: Sequelize.STRING, required: true },
         title: { type: Sequelize.STRING, required: true },
         description: { type: Sequelize.STRING, required: true },
-        imageUrl: { type: Sequelize.STRING, require: true },
-    })
-    return Post
-}
+        imageUrl: { type: Sequelize.STRING },
+    });
+    return Post;
+};
