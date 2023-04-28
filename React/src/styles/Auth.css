@@ -53,6 +53,7 @@
     box-shadow: 0.2em 0.2em 0.2em var(--tertiary);
     color: var(--secondary);
     background-color: var(--tertiary);
+    cursor: pointer;
 }
 .btn_signup:hover, .btn_login:hover{
     border: 0.1em solid var(--tertiary);

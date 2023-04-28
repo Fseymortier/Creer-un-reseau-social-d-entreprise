@@ -1,21 +1,21 @@
-import React from 'react'
-import AuthService from '../services/auth.service'
-import '../styles/Profile.css'
+import React from "react";
+import AuthService from "../services/auth.service";
+import "../styles/Profile.css";
 
 const Profile = () => {
-    const currentUser = AuthService.getCurrentUser()
+    const currentUser = AuthService.getCurrentUser();
     return (
         <div className="container_profile">
-            <h1>Profile</h1>
+            <h1 className="title_posts_list">Vos informations</h1>
             <div className="container_item_profile">
-                <p>
-                    <strong>Pseudo:</strong> {currentUser.nickname}
+                <p className="infos_profil">
+                    <strong>Pseudo :</strong> {currentUser.nickname}
                 </p>
-                <p>
-                    <strong>Email:</strong> {currentUser.email}
+                <p className="infos_profil">
+                    <strong>Email :</strong> {currentUser.email}
                 </p>
             </div>
         </div>
-    )
-}
-export default Profile
+    );
+};
+export default Profile;

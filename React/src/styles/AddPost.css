@@ -45,9 +45,9 @@
     margin: 0.5em 0;
     padding: 0.2em 0.7em;
     border: 0.1em solid var(--secondary);
-    box-shadow: 0.2em 0.2em 0.2em #4E5166;
     color: var(--secondary);
     background-color: var(--tertiary);
+    cursor: pointer;
 }
 .btn_addpost:hover{
     border: 0.1em solid var(--tertiary);

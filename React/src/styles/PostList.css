@@ -1,39 +1,43 @@
-:root{
-    --primary: #FD2D01;
-    --secondary: #FFD7D7;
-    --tertiary: #4E5166;
-  }
-.container_postList{
+:root {
+    --primary: #fd2d01;
+    --secondary: #ffd7d7;
+    --tertiary: #4e5166;
+}
+.container_postList {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-#input_search::placeholder{
+.title_posts_list {
+    font-size: 3rem;
+    margin: 2rem 0;
+}
+#input_search::placeholder {
     color: var(--tertiary);
 }
-.input_search_post{
+.input_search_post {
     font-size: 1.5em;
     border-radius: 0.5em 0 0 0.5em;
     padding: 0.2em;
     border: 0.1em solid #6a6e8a;
 }
-.search_btn{
+.search_btn {
     font-size: 1.5em;
     border-radius: 0 0.5em 0.5em 0;
     padding: 0.2em;
     border: 0.1em solid #6a6e8a;
     border-left: 0;
     color: var(--tertiary);
-    background-color: #FFD7D7;
+    background-color: #ffd7d7;
 }
-.post_list_container{
+.post_list_container {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.post_list_item{
+.post_list_item {
     width: 30%;
     display: flex;
     flex-direction: column;
@@ -45,16 +49,21 @@
     color: var(--secondary);
     background-color: var(--tertiary);
     text-decoration: none;
-    box-shadow: 0.2em 0.2em 0.2em #4E5166;
+    box-shadow: 0.2em 0.2em 0.2em #4e5166;
 }
-.post_title{
+.post_title {
     text-align: center;
+    margin: 1rem 0;
 }
-.postList_img{
+.post_description {
+    margin: 1rem 0;
+}
+.postList_img {
     width: 90%;
 }
-.author_like{
+.author_like {
     width: 80%;
     display: flex;
     justify-content: space-between;
+    margin: 1rem 0;
 }

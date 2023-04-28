@@ -1,105 +1,119 @@
-:root{
-    --primary: #FD2D01;
-    --secondary: #FFD7D7;
-    --tertiary: #4E5166;
+:root {
+    --primary: #fd2d01;
+    --secondary: #ffd7d7;
+    --tertiary: #4e5166;
 }
-.container_post, .form_modifyPost{
+.container_post,
+.form_modifyPost {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-/*-------------- author of Post ---------------*/
-.content_modify_post{
+/*-------------- Posts container ---------------*/
+.content_post {
     width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 1em 0;
+    padding: 1rem;
     color: var(--secondary);
     background-color: var(--tertiary);
-    box-shadow: 0.2em 0.2em 0.2em #4E5166;
+    box-shadow: 0.2em 0.2em 0.2em #4e5166;
     border-radius: 1em;
-    border: 0.1em solid var(--secondary);
 }
-.title_modify_post{
+.title_post {
     text-align: center;
+    background-color: var(--tertiary);
+    margin: 1rem 0;
 }
-.form_modify_post{
+/*-------------- Modify post ---------------*/
+.form_modify_post {
     display: flex;
     flex-direction: column;
 }
-.label_modify_post { 
-    width: 60%;    
+.label_modify_post {
+    width: 60%;
     font-size: 1.5em;
     margin: 0.5em 0;
 }
-.input_modify_post{
+.input_modify_post {
     width: 90%;
     font-size: 1.3em;
+    border: none;
     border-radius: 0.5em;
     margin: 0.5em 0;
     padding: 0.2em;
-    border: 0.1em solid var(--secondary);
 }
-.btn_div{
+.container_btns {
     width: 100%;
     display: flex;
     justify-content: space-around;
 }
-.btn_deletepost, .btn_modifypost{
-    font-size: 1.3em;
+.btn_deletepost,
+.btn_modifypost {
+    font-size: 1.5em;
     border-radius: 1em;
     margin: 0.5em 0;
     padding: 0.2em 0.7em;
     border: 0.1em solid var(--secondary);
-    box-shadow: 0.2em 0.2em 0.2em #4E5166;
+    box-shadow: 0.2em 0.2em 0.2em #4e5166;
     color: var(--secondary);
     background-color: var(--tertiary);
+    cursor: pointer;
 }
-.btn_deletepost:hover, .btn_modifypost:hover{
+.btn_deletepost:hover,
+.btn_modifypost:hover {
     border: 0.1em solid var(--tertiary);
     color: var(--tertiary);
     background-color: var(--secondary);
 }
-/*------------ Not author of Post -------------*/
-.content_post{
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 1em 0;
-    color: var(--secondary);
-    background-color: var(--tertiary);
-    box-shadow: 0.2em 0.2em 0.2em #4E5166;
-    border-radius: 1em;
-    border: 0.1em solid var(--secondary);
-}
-.title_post{
-    width: 60%;
-    text-align: center;
-    background-color: var(--tertiary);
-}
-/*------------------- Like --------------------*/
-.container_like{
+/*------------------- Like and Commment --------------------*/
+.container_like {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+.icon_heart {
+    height: 1.5rem;
     cursor: pointer;
 }
-.number_of_like{
-    margin: 1em;
+.number_of_like {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
 }
-.div_author_like{
+.container_like_com {
     width: 100%;
-    display: flex;
-    justify-content: space-around;
+    padding: 1rem 0;
 }
-.div_author_text{
-    width: 6em;
+.likes_coms {
+    width: 100%;
+    height: 3rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    color: #4e5166;
+    background-color: var(--secondary);
+    border-radius: 1rem;
+    padding: 0 1rem;
 }
-.p_author_like{
-    font-size: 1.3em;
+.number_com {
+    font-size: 1.5em;
+}
+.author {
+    font-size: 1.5em;
+    align-self: flex-start;
+}
+/*------------------- Comment --------------------*/
+.container_com {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+}
+.txt_com {
+    border-radius: 1rem;
+    margin: 0.5rem 0;
 }

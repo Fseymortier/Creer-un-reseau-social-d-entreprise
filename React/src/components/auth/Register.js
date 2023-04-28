@@ -17,7 +17,7 @@ const required = value => {
     }
 }
 const vnickname = value => {
-    if (value.length < 3 || value.length > 20) {
+    if (value.length < 6 || value.length > 20) {
         return (
             <div className="alert alert-danger" role="alert">
                 Votre pseudo dois contenir un minimum de 6 caractères et maximum
