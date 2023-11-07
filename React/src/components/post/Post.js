@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import PostService from "../../services/PostService";
-import AuthService from "../../services/auth.service";
-import Like from "./like";
-import "../../styles/Post.css";
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import PostService from '../../services/PostService';
+import AuthService from '../../services/auth.service';
+import Like from './like';
+import Com from './com';
+import NbComs from './NbComs';
+import '../../styles/Post.css';
 
 const Post = () => {
     let navigate = useNavigate();
     const { id } = useParams();
+    const postId = parseInt(id);
     const currentUser = AuthService.getCurrentUser();
-    const currentPostId = parseInt(id);
-    const [currentPost, setCurrentPost] = useState("");
-    const [message, setMessage] = useState("");
-    const [selectedFile, SetSelectedFile] = useState("");
+    const [currentPost, setCurrentPost] = useState('');
+    const [message, setMessage] = useState('');
+    const [selectedFile, SetSelectedFile] = useState('');
 
     function getPost(id) {
         PostService.get(id)
@@ -42,7 +44,7 @@ const Post = () => {
         };
         PostService.update(id, data)
             .then(() => {
-                setMessage("Le Post à bien été modifié");
+                setMessage('Le Post à bien été modifié');
             })
             .catch((e) => {
                 setMessage(e);
@@ -51,115 +53,98 @@ const Post = () => {
     function deletePost() {
         PostService.remove(id)
             .then(() => {
-                setMessage("Le Post à bien été supprimé");
-                navigate("/posts");
+                setMessage('Le Post à bien été supprimé');
+                navigate('/posts');
             })
             .catch(() => {
-                setMessage("Erreur pendant la suppression du post");
+                setMessage('Erreur pendant la suppression du post');
             });
     }
     return (
-        <div className="container_post">
+        <div className="container_post flex">
             {currentUser.nickname === currentPost.author ||
-            currentUser.role === "admin" ? (
-                <div className="container_post">
-                    <div className="content_post">
-                        <h2 className="title_post">
-                            Modification de votre Post
-                        </h2>
-                        <form className="form_modifyPost">
-                            <label
-                                className="label_modify_post"
-                                htmlFor="title"
-                            >
-                                Titre :
-                                <input
-                                    type="text"
-                                    className="input_modify_post"
-                                    id="title"
-                                    name="title"
-                                    value={currentPost.title}
-                                    onChange={handleInputChange}
-                                />
-                            </label>
-                            <label
-                                className="label_modify_post"
-                                htmlFor="description"
-                            >
-                                Description :
-                                <input
-                                    type="text"
-                                    className="input_modify_post"
-                                    id="description"
-                                    name="description"
-                                    value={currentPost.description}
-                                    onChange={handleInputChange}
-                                />
-                            </label>
-                            <label
-                                className="label_modify_post"
-                                htmlFor="imageUrl"
-                            >
-                                Image :
-                                <input
-                                    type="file"
-                                    name="imageUrl"
-                                    id="imageUrl"
-                                    onChange={handleFileSelect}
-                                />
-                            </label>
-                        </form>
-                        <div className="container_btns">
-                            <button
-                                className="btn_deletepost"
-                                onClick={deletePost}
-                            >
-                                Supprimer
-                            </button>
-                            <button
-                                type="submit"
-                                className="btn_modifypost"
-                                onClick={updatePost}
-                            >
-                                Mêtre à jour
-                            </button>
-                        </div>
-                        <div className="container_like_com">
-                            <span className="likes_coms">
-                                <Like id={currentPostId} />
-                                <p className="number_com">22 commentaires</p>
-                            </span>
-                        </div>
+            currentUser.role === 'admin' ? (
+                <div className="content_post flex">
+                    <h2 className="title_post">Modification de votre Post</h2>
+                    <form className="form_modifyPost flex">
+                        <label className="label_modify_post" htmlFor="title">
+                            Titre :
+                            <textarea
+                                type="text"
+                                className="input_modify_post"
+                                id="title"
+                                name="title"
+                                value={currentPost.title}
+                                onChange={handleInputChange}
+                            />
+                        </label>
+                        <label
+                            className="label_modify_post"
+                            htmlFor="description"
+                        >
+                            Description :
+                            <textarea
+                                type="text"
+                                className="input_modify_post"
+                                id="description"
+                                name="description"
+                                value={currentPost.description}
+                                onChange={handleInputChange}
+                            />
+                        </label>
+                        <label className="label_modify_post" htmlFor="imageUrl">
+                            Image :<br />
+                            <input
+                                type="file"
+                                name="imageUrl"
+                                id="imageUrl"
+                                onChange={handleFileSelect}
+                            />
+                        </label>
+                    </form>
+                    <div className="container_btns flex">
+                        <button className="btn" onClick={deletePost}>
+                            Supprimer
+                        </button>
+                        <button
+                            type="submit"
+                            className="btn"
+                            onClick={updatePost}
+                        >
+                            Mêtre à jour
+                        </button>
                     </div>
+                    <div className="container_like_com flex">
+                        <span className="likes_coms flex">
+                            <Like id={postId} />
+                            <NbComs id={postId} />
+                        </span>
+                    </div>
+                    <Com id={postId} />
                 </div>
             ) : (
-                <div className="container_post">
-                    <div className="content_post">
-                        <p className="author">{" " + currentPost.author}</p>
-                        <h2 className="title_post">{currentPost.title}</h2>
-                        <p className="post_description">
-                            {currentPost.description}
-                        </p>
-                        {currentPost.imageUrl ? (
-                            <img
-                                className="postList_img"
-                                src={currentPost.imageUrl}
-                                alt="téléchargé par un utilisateur"
-                            />
-                        ) : (
-                            <></>
-                        )}
-                        <div className="container_like_com">
-                            <span className="likes_coms">
-                                <Like id={currentPostId} />
-                                <p className="number_com">22 commentaires</p>
-                            </span>
-                        </div>
-                        <label className="container_com" htmlFor="description">
-                            Commenter :
-                            <textarea type="text" className="txt_com" />
-                        </label>
+                <div className="content_post flex">
+                    <p className="author">{' ' + currentPost.author}</p>
+                    <h2 className="title_post">{currentPost.title}</h2>
+                    <p className="post_description">
+                        {currentPost.description}
+                    </p>
+                    {currentPost.imageUrl ? (
+                        <img
+                            className="postList_img"
+                            src={currentPost.imageUrl}
+                            alt="téléchargé par un utilisateur"
+                        />
+                    ) : (
+                        <></>
+                    )}
+                    <div className="container_like_com flex">
+                        <span className="likes_coms flex">
+                            <Like id={postId} />
+                            <NbComs id={postId} />
+                        </span>
                     </div>
+                    <Com id={postId} />
                 </div>
             )}
             {message && (

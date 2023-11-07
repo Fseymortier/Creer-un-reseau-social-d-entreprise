@@ -5,13 +5,7 @@
 }
 .container_postList {
     width: 100%;
-    display: flex;
     flex-direction: column;
-    align-items: center;
-}
-.title_posts_list {
-    font-size: 3rem;
-    margin: 2rem 0;
 }
 #input_search::placeholder {
     color: var(--tertiary);
@@ -31,17 +25,9 @@
     color: var(--tertiary);
     background-color: #ffd7d7;
 }
-.post_list_container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 .post_list_item {
     width: 30%;
-    display: flex;
     flex-direction: column;
-    align-items: center;
     margin: 1em 0;
     padding: 1em;
     border-radius: 1em;
@@ -50,6 +36,10 @@
     background-color: var(--tertiary);
     text-decoration: none;
     box-shadow: 0.2em 0.2em 0.2em #4e5166;
+}
+.post_author {
+    align-self: flex-start;
+    font-size: 1.3rem;
 }
 .post_title {
     text-align: center;
@@ -63,7 +53,6 @@
 }
 .author_like {
     width: 80%;
-    display: flex;
     justify-content: space-between;
     margin: 1rem 0;
 }

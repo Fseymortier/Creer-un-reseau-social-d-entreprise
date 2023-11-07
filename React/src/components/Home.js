@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <div className="container">
             {currentUser ? (
-                <h1 className="title_posts_list">
+                <h1 className="title">
                     Bonjour {currentUser.nickname}
                 </h1>
             ) : (

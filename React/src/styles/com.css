@@ -1,0 +1,47 @@
+/*------------------- Add comment --------------------*/
+.container_com {
+    width: 80%;
+    flex-direction: column;
+}
+.form_com {
+    flex-direction: column;
+    width: 100%;
+    border: 2px var(--secondary) solid;
+    border-radius: 2rem;
+    margin: 2rem 0;
+    padding: 1rem 0;
+}
+.label_com {
+    width: 80%;
+    font-size: 1.5rem;
+}
+.txt_com {
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 1rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+}
+/*------------------- list comment --------------------*/
+.items_coms {
+    width: 100%;
+    flex-direction: column;
+    border: 1px var(--secondary) solid;
+    border-radius: 1rem;
+    margin: 1rem 0;
+    padding: 1rem;
+}
+.coms_authors {
+    font-size: 1.3rem;
+    color: var(--secondary);
+    align-self: flex-start;
+    margin: 0 0 1rem 0;
+}
+.coms_content {
+    width: 100%;
+    font-size: 1.3rem;
+    color: var(--tertiary);
+    background-color: var(--secondary);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}

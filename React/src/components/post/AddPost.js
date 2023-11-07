@@ -11,7 +11,7 @@ const AddPost = () => {
 
     function handleInputChange(event) {
         const { name, value } = event.target;
-        setPost({ ...post, [name]: value });
+        setPost({ ...post, [name]: value }); // on change add new object in post from the value name
     }
     function handleFileSelect(e) {
         SetSelectedFile(e.target.files[0]);
@@ -32,22 +32,14 @@ const AddPost = () => {
                 return data;
             })
             .catch((error) => {
-                const resMessage =
-                    (error.response &&
-                        error.response.data &&
-                        error.response.data.message) ||
-                    error.message ||
-                    error.toString();
+                const resMessage = error.response.data.message;
                 setMessage(resMessage);
             });
     }
     return (
-        <div className="container_addpost">
-            <h1 className="title_posts_list">Créer un Post</h1>
-            <form
-                className="container_item_addpost"
-                contentype="multipart/form-data"
-            >
+        <div className="content_post flex">
+            <h2 className="title_post">Créer un Post</h2>
+            <form className="form_addpost">
                 <label className="label_addpost" htmlFor="title">
                     Titre:
                     <textarea
@@ -81,7 +73,7 @@ const AddPost = () => {
                         onChange={handleFileSelect}
                     />
                 </label>
-                <button onClick={savePost} className="btn_addpost">
+                <button onClick={savePost} className="btn">
                     Ajouter le post
                 </button>
             </form>

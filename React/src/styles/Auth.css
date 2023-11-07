@@ -1,17 +1,18 @@
-:root{
-    --primary: #FD2D01;
-    --secondary: #FFD7D7;
-    --tertiary: #4E5166;
+:root {
+    --primary: #fd2d01;
+    --secondary: #ffd7d7;
+    --tertiary: #4e5166;
 }
-.container_form{
+.container_form {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.profile_img{
+.profile_img {
     width: 10em;
 }
-.form_signup, .form_login {
+.form_signup,
+.form_login {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -22,31 +23,34 @@
     background-color: var(--tertiary);
     border-radius: 2em;
 }
-.label_signup, .label_login {
+.label_signup,
+.label_login {
     width: 100%;
-    text-align: center;    
+    text-align: center;
     font-size: 1.5em;
     margin: 0.5em;
     color: var(--secondary);
 }
-.input_signup, .input_login {
+.input_signup,
+.input_login {
     width: 90%;
     font-size: 0.5em;
     margin: 0.5em;
     padding: 0.5em;
     color: var(--tertiary);
     background-color: white;
-    border: 1px #4E5166 solid;
+    border: 1px #4e5166 solid;
     border-radius: 1em;
 }
-.container_signup, .container_login {
+.container_signup,
+.container_login {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.btn_signup, .btn_login{
-    font-size: 1.3em;
-    border-radius: 1em;
+.btn {
+    font-size: 1.4em;
+    border-radius: 2rem;
     margin: 0.5em 0;
     padding: 0.2em 0.7em;
     border: 0.1em solid var(--secondary);
@@ -55,7 +59,7 @@
     background-color: var(--tertiary);
     cursor: pointer;
 }
-.btn_signup:hover, .btn_login:hover{
+.btn:hover {
     border: 0.1em solid var(--tertiary);
     color: var(--tertiary);
     background-color: var(--secondary);

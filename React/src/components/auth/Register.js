@@ -1,90 +1,90 @@
-import React, { useState, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
-import Form from 'react-validation/build/form'
-import Input from 'react-validation/build/input'
-import CheckButton from 'react-validation/build/button'
-import { isEmail } from 'validator'
-import AuthService from '../../services/auth.service'
-import '../../styles/Auth.css'
+import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Form from 'react-validation/build/form';
+import Input from 'react-validation/build/input';
+import CheckButton from 'react-validation/build/button';
+import { isEmail } from 'validator';
+import AuthService from '../../services/auth.service';
+import '../../styles/Auth.css';
 
-const required = value => {
+const required = (value) => {
     if (!value) {
         return (
             <div className="alert alert-danger" role="alert">
                 Ce champ est requis!
             </div>
-        )
+        );
     }
-}
-const vnickname = value => {
+};
+const vnickname = (value) => {
     if (value.length < 6 || value.length > 20) {
         return (
             <div className="alert alert-danger" role="alert">
                 Votre pseudo dois contenir un minimum de 6 caractères et maximum
                 40.
             </div>
-        )
+        );
     }
-}
-const validEmail = value => {
+};
+const validEmail = (value) => {
     if (!isEmail(value)) {
         return (
             <div className="alert alert-danger" role="alert">
                 Cette E-mail n'est pas valide.
             </div>
-        )
+        );
     }
-}
-const vpassword = value => {
+};
+const vpassword = (value) => {
     if (value.length < 6 || value.length > 40) {
         return (
             <div className="alert alert-danger" role="alert">
                 Votre mot de passe dois contenir un minimum de 6 caractères et
                 maximum 40.
             </div>
-        )
+        );
     }
-}
+};
 const Register = () => {
-    let navigate = useNavigate()
-    const form = useRef()
-    const checkBtn = useRef()
-    const [nickname, setNickname] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [message, setMessage] = useState('')
+    let navigate = useNavigate();
+    const form = useRef();
+    const checkBtn = useRef();
+    const [nickname, setNickname] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
 
     function onChangeNickname(e) {
-        const nickname = e.target.value
-        setNickname(nickname)
+        const nickname = e.target.value;
+        setNickname(nickname);
     }
     function onChangeEmail(e) {
-        const email = e.target.value
-        setEmail(email)
+        const email = e.target.value;
+        setEmail(email);
     }
     function onChangePassword(e) {
-        const password = e.target.value
-        setPassword(password)
+        const password = e.target.value;
+        setPassword(password);
     }
     function handleRegister(e) {
-        e.preventDefault()
-        setMessage('')
-        form.current.validateAll()
+        e.preventDefault();
+        setMessage('');
+        form.current.validateAll();
         if (checkBtn.current.context._errors.length === 0) {
             AuthService.register(nickname, email, password)
-                .then(response => {
-                    setMessage(response)
-                    navigate('/signin')
+                .then((response) => {
+                    setMessage(response);
+                    navigate('/signin');
                 })
-                .catch(error => {
+                .catch((error) => {
                     const resMessage =
                         (error.response &&
                             error.response.data &&
                             error.response.data.message) ||
                         error.message ||
-                        error.toString()
-                    setMessage(resMessage)
-                })
+                        error.toString();
+                    setMessage(resMessage);
+                });
         }
     }
     return (
@@ -124,7 +124,7 @@ const Register = () => {
                             validations={[required, vpassword]}
                         />
                     </label>
-                    <button className="btn_signup">S'enregistrer</button>
+                    <button className="btn">S'enregistrer</button>
                 </div>
                 {message && (
                     <div className="alert alert-danger" role="alert">
@@ -134,6 +134,6 @@ const Register = () => {
                 <CheckButton style={{ display: 'none' }} ref={checkBtn} />
             </Form>
         </div>
-    )
-}
-export default Register
+    );
+};
+export default Register;

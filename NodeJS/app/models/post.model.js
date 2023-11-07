@@ -5,5 +5,6 @@ module.exports = (sequelize, Sequelize) => {
         description: { type: Sequelize.STRING, required: true },
         imageUrl: { type: Sequelize.STRING },
     });
+
     return Post;
 };

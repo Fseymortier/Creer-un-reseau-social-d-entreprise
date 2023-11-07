@@ -6,16 +6,12 @@
 .container_post,
 .form_modifyPost {
     width: 100%;
-    display: flex;
     flex-direction: column;
-    align-items: center;
 }
 /*-------------- Posts container ---------------*/
 .content_post {
-    width: 30%;
-    display: flex;
+    width: 40%;
     flex-direction: column;
-    align-items: center;
     margin: 1em 0;
     padding: 1rem;
     color: var(--secondary);
@@ -25,56 +21,28 @@
 }
 .title_post {
     text-align: center;
-    background-color: var(--tertiary);
+    font-size: 2.5rem;
     margin: 1rem 0;
 }
 /*-------------- Modify post ---------------*/
-.form_modify_post {
-    display: flex;
-    flex-direction: column;
-}
 .label_modify_post {
     width: 60%;
     font-size: 1.5em;
     margin: 0.5em 0;
 }
 .input_modify_post {
-    width: 90%;
-    font-size: 1.3em;
-    border: none;
+    width: 100%;
+    font-size: 1rem;
     border-radius: 0.5em;
     margin: 0.5em 0;
     padding: 0.2em;
 }
 .container_btns {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
-.btn_deletepost,
-.btn_modifypost {
-    font-size: 1.5em;
-    border-radius: 1em;
-    margin: 0.5em 0;
-    padding: 0.2em 0.7em;
-    border: 0.1em solid var(--secondary);
-    box-shadow: 0.2em 0.2em 0.2em #4e5166;
-    color: var(--secondary);
-    background-color: var(--tertiary);
-    cursor: pointer;
-}
-.btn_deletepost:hover,
-.btn_modifypost:hover {
-    border: 0.1em solid var(--tertiary);
-    color: var(--tertiary);
-    background-color: var(--secondary);
+    width: 60%;
+    justify-content: space-between;
+    margin: 1rem 0;
 }
 /*------------------- Like and Commment --------------------*/
-.container_like {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
 .icon_heart {
     height: 1.5rem;
     cursor: pointer;
@@ -88,32 +56,18 @@
     padding: 1rem 0;
 }
 .likes_coms {
-    width: 100%;
-    height: 3rem;
-    display: flex;
+    width: 60%;
     justify-content: space-between;
-    align-items: center;
     color: #4e5166;
     background-color: var(--secondary);
     border-radius: 1rem;
-    padding: 0 1rem;
+    padding: 1rem;
 }
 .number_com {
     font-size: 1.5em;
+    text-align: center;
 }
 .author {
     font-size: 1.5em;
     align-self: flex-start;
-}
-/*------------------- Comment --------------------*/
-.container_com {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    font-size: 1.5rem;
-    padding: 1rem 0;
-}
-.txt_com {
-    border-radius: 1rem;
-    margin: 0.5rem 0;
 }

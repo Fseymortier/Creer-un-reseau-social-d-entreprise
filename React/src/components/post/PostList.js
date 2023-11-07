@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
-import PostDataService from "../../services/PostService";
-import { Link } from "react-router-dom";
-import "../../styles/PostList.css";
-import Like from "./like";
+import React, { useState, useEffect } from 'react';
+import PostDataService from '../../services/PostService';
+import { Link } from 'react-router-dom';
+import '../../styles/PostList.css';
+import Like from './like';
+import NbComs from './NbComs';
 
 const PostList = () => {
     const [posts, setPosts] = useState([]);
@@ -15,48 +16,35 @@ const PostList = () => {
     }, []);
 
     return (
-        <div className="container_postList">
-            <h1 className="title_posts_list">Liste des Posts</h1>
+        <div className="container_postList flex">
+            <h1 className="title">Liste des Posts</h1>
             {posts &&
-                posts.map((post) =>
-                    post.imageUrl ? (
-                        <Link
-                            key={post.id}
-                            to={"/posts/" + post.id}
-                            className="post_list_item "
-                        >
-                            <h2 className="post_title">{post.title}</h2>
-                            <p className="post_description">
-                                {post.description}
-                            </p>
+                posts.map((post) => (
+                    <Link
+                        key={post.id}
+                        to={'/posts/' + post.id}
+                        className="post_list_item flex"
+                    >
+                        <p className="post_author">{post.author}</p>
+                        <h2 className="post_title">{post.title}</h2>
+                        <p className="post_description">{post.description}</p>
+                        {post.imageUrl ? (
                             <img
                                 className="postList_img"
                                 src={post.imageUrl}
                                 alt="téléchargé par un utilisateur"
                             />
-
-                            <div className="author_like">
-                                <p>Auteur: {post.author}</p>
+                        ) : (
+                            <></>
+                        )}
+                        <div className="container_like_com flex">
+                            <span className="likes_coms flex">
                                 <Like id={post.id} />
-                            </div>
-                        </Link>
-                    ) : (
-                        <Link
-                            key={post.id}
-                            to={"/posts/" + post.id}
-                            className="post_list_item "
-                        >
-                            <p className="author">{post.author}</p>
-                            <h2 className="post_title">{post.title}</h2>
-                            <p className="post_description">
-                                {post.description}
-                            </p>
-                            <div className="author_like">
-                                <Like id={post.id} />
-                            </div>
-                        </Link>
-                    )
-                )}
+                                <NbComs id={post.id} />
+                            </span>
+                        </div>
+                    </Link>
+                ))}
         </div>
     );
 };

@@ -6,7 +6,7 @@ const Profile = () => {
     const currentUser = AuthService.getCurrentUser();
     return (
         <div className="container_profile">
-            <h1 className="title_posts_list">Vos informations</h1>
+            <h1 className="title">Vos informations</h1>
             <div className="container_item_profile">
                 <p className="infos_profil">
                     <strong>Pseudo :</strong> {currentUser.nickname}
