@@ -23,6 +23,6 @@ Créer la base de données nommée "groupomania" dans votre navigateur à l'url 
 
 # Lancer le projet
 
-Dans l'invité de commande Powershell en mode administrateur, positionner vous dans le dossier NodeJs et lancer la commande : node server.js 
+Dans l'invité de commande Powershell en mode administrateur, positionner vous dans le dossier NodeJs et lancer la commande : "npm install" puis "node server.js"
 
-Dans l'invité de commande Powershell en mode administrateur, positionner vous dans le dossier React et lancer la commande : npm start
+Dans l'invité de commande Powershell en mode administrateur, positionner vous dans le dossier React et lancer la commande : "npm install" puis "npm start"
