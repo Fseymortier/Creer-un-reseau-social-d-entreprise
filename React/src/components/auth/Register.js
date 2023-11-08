@@ -21,7 +21,7 @@ const vnickname = (value) => {
         return (
             <div className="alert alert-danger" role="alert">
                 Votre pseudo dois contenir un minimum de 6 caractères et maximum
-                40.
+                20.
             </div>
         );
     }
@@ -36,11 +36,11 @@ const validEmail = (value) => {
     }
 };
 const vpassword = (value) => {
-    if (value.length < 6 || value.length > 40) {
+    if (value.length < 6 || value.length > 25) {
         return (
             <div className="alert alert-danger" role="alert">
                 Votre mot de passe dois contenir un minimum de 6 caractères et
-                maximum 40.
+                maximum 25.
             </div>
         );
     }
