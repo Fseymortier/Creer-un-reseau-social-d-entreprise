@@ -90,6 +90,7 @@ const Register = () => {
     return (
         <div className="container_form">
             <Form className="form_signup" onSubmit={handleRegister} ref={form}>
+                {/*a modifier pour eviter la creation de d'utilisateur*/}
                 <div className="container_signup">
                     <label className="label_signup" htmlFor="nickname">
                         Pseudo
@@ -97,9 +98,13 @@ const Register = () => {
                             type="text"
                             className="input_signup"
                             name="nickname"
+                            id="nickname"
+                            autoComplete="given-name"
+                            placeholder="ex: florian"
                             value={nickname}
                             onChange={onChangeNickname}
                             validations={[required, vnickname]}
+                            maxLength={20}
                         />
                     </label>
                     <label className="label_signup" htmlFor="email">
@@ -108,6 +113,9 @@ const Register = () => {
                             type="text"
                             className="input_signup"
                             name="email"
+                            id="email"
+                            autoComplete="email"
+                            placeholder="ex: florian@gmail.com"
                             value={email}
                             onChange={onChangeEmail}
                             validations={[required, validEmail]}
@@ -119,9 +127,12 @@ const Register = () => {
                             type="password"
                             className="input_signup"
                             name="password"
+                            id="password"
+                            autoComplete="new-password"
                             value={password}
                             onChange={onChangePassword}
                             validations={[required, vpassword]}
+                            maxLength={25}
                         />
                     </label>
                     <button className="btn">S'enregistrer</button>

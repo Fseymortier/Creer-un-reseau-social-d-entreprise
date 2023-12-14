@@ -14,9 +14,9 @@ const NbComs = ({ id }) => {
         setNbComs(response.length);
     }
     return (
-        <div className="container_com flex">
-            <p className="number_com">{NbComs} Commentaires</p>
-        </div>
+        <p className="container_nbCom">
+            {NbComs} {'Commentaire(s)'}
+        </p>
     );
 };
 

@@ -1,6 +1,6 @@
-import React from "react";
-import AuthService from "../services/auth.service";
-import "../styles/Profile.css";
+import React from 'react';
+import AuthService from '../services/auth.service';
+import '../styles/Profile.css';
 
 const Profile = () => {
     const currentUser = AuthService.getCurrentUser();
@@ -13,6 +13,9 @@ const Profile = () => {
                 </p>
                 <p className="infos_profil">
                     <strong>Email :</strong> {currentUser.email}
+                </p>
+                <p className="infos_profil">
+                    <strong>Role :</strong> {currentUser.role}
                 </p>
             </div>
         </div>

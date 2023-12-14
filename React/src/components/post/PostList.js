@@ -17,7 +17,7 @@ const PostList = () => {
 
     return (
         <div className="container_postList flex">
-            <h1 className="title">Liste des Posts</h1>
+            <h1 className="title">Posts</h1>
             {posts &&
                 posts.map((post) => (
                     <Link

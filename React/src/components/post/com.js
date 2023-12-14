@@ -58,6 +58,7 @@ const Com = ({ id }) => {
             {currentUser.nickname === com.author ||
             currentUser.role === 'admin' ? (
                 <button className="btn" onClick={() => deleteCom(com.id)}>
+                    {/*a modifier pour eviter la supression de com*/}
                     Supprimer
                 </button>
             ) : null}
@@ -75,6 +76,7 @@ const Com = ({ id }) => {
                         onChange={contentChange}
                         name="content"
                         value={com.content}
+                        maxLength={250}
                     />
                 </label>
                 {message && (
@@ -83,6 +85,7 @@ const Com = ({ id }) => {
                     </div>
                 )}
                 <button className="btn" onClick={createCom}>
+                    {/*a modifier pour eviter la creation de com*/}
                     Ajouter
                 </button>
             </form>

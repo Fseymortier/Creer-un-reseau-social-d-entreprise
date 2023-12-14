@@ -40,6 +40,8 @@
 .coms_content {
     width: 100%;
     font-size: 1.3rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
     color: var(--tertiary);
     background-color: var(--secondary);
     border-radius: 0.5rem;

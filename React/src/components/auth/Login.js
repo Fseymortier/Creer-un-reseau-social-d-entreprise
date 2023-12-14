@@ -1,10 +1,11 @@
-import React, { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
-import CheckButton from "react-validation/build/button";
-import AuthService from "../../services/auth.service";
-import "../../styles/Auth.css";
+import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Form from 'react-validation/build/form';
+import Input from 'react-validation/build/input';
+import CheckButton from 'react-validation/build/button';
+import AuthService from '../../services/auth.service';
+import { useAuth } from './AuthProvider';
+import '../../styles/Auth.css';
 
 const required = (value) => {
     if (!value) {
@@ -19,9 +20,10 @@ const Login = () => {
     let navigate = useNavigate();
     const form = useRef();
     const checkBtn = useRef();
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [message, setMessage] = useState("");
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
+    const { login } = useAuth();
 
     function onChangeEmail(e) {
         const email = e.target.value;
@@ -33,13 +35,14 @@ const Login = () => {
     }
     function handleLogin(e) {
         e.preventDefault();
-        setMessage("");
+        setMessage('');
         form.current.validateAll();
         if (checkBtn.current.context._errors.length === 0) {
             AuthService.login(email, password).then(
                 () => {
-                    navigate("/posts");
-                    window.location.reload();
+                    const user = AuthService.getCurrentUser();
+                    login(user.nickname);
+                    navigate('/posts');
                 },
                 (error) => {
                     const resMessage =
@@ -63,6 +66,8 @@ const Login = () => {
                             type="text"
                             className="input_login"
                             name="email"
+                            id="email"
+                            autoComplete="email"
                             value={email}
                             onChange={onChangeEmail}
                             validations={[required]}
@@ -74,6 +79,8 @@ const Login = () => {
                             type="password"
                             className="input_login"
                             name="password"
+                            id="password"
+                            autoComplete="current-password"
                             value={password}
                             onChange={onChangePassword}
                             validations={[required]}
@@ -86,7 +93,7 @@ const Login = () => {
                         {message}
                     </div>
                 )}
-                <CheckButton style={{ display: "none" }} ref={checkBtn} />
+                <CheckButton style={{ display: 'none' }} ref={checkBtn} />
             </Form>
         </div>
     );

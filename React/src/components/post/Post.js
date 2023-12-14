@@ -28,13 +28,16 @@ const Post = () => {
     useEffect(() => {
         if (id) getPost(id);
     }, [id]);
+
     function handleInputChange(event) {
         const { name, value } = event.target;
         setCurrentPost({ ...currentPost, [name]: value });
     }
+
     function handleFileSelect(e) {
         SetSelectedFile(e.target.files[0]);
     }
+
     function updatePost(e) {
         e.preventDefault();
         var data = {
@@ -62,10 +65,9 @@ const Post = () => {
     }
     return (
         <div className="container_post flex">
-            {currentUser.nickname === currentPost.author ||
-            currentUser.role === 'admin' ? (
+            <h1 className="title">Post</h1>
+            {currentUser.nickname === currentPost.author || currentUser.role === 'admin' ? (
                 <div className="content_post flex">
-                    <h2 className="title_post">Modification de votre Post</h2>
                     <form className="form_modifyPost flex">
                         <label className="label_modify_post" htmlFor="title">
                             Titre :
@@ -78,10 +80,7 @@ const Post = () => {
                                 onChange={handleInputChange}
                             />
                         </label>
-                        <label
-                            className="label_modify_post"
-                            htmlFor="description"
-                        >
+                        <label className="label_modify_post" htmlFor="description">
                             Description :
                             <textarea
                                 type="text"
@@ -103,15 +102,13 @@ const Post = () => {
                         </label>
                     </form>
                     <div className="container_btns flex">
-                        <button className="btn" onClick={deletePost}>
-                            Supprimer
+                        <button type="submit" className="btn" onClick={updatePost}>
+                            {/*a modifier pour eviter la creation de post*/}
+                            Modifier
                         </button>
-                        <button
-                            type="submit"
-                            className="btn"
-                            onClick={updatePost}
-                        >
-                            Mêtre à jour
+                        <button className="btn" onClick={deletePost}>
+                            {/*a modifier pour eviter la creation de post*/}
+                            Supprimer
                         </button>
                     </div>
                     <div className="container_like_com flex">
@@ -126,9 +123,7 @@ const Post = () => {
                 <div className="content_post flex">
                     <p className="author">{' ' + currentPost.author}</p>
                     <h2 className="title_post">{currentPost.title}</h2>
-                    <p className="post_description">
-                        {currentPost.description}
-                    </p>
+                    <p className="post_description">{currentPost.description}</p>
                     {currentPost.imageUrl ? (
                         <img
                             className="postList_img"
