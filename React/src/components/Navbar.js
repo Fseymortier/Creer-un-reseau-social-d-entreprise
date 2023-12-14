@@ -16,6 +16,13 @@ const Navbar = () => {
     function afficherMenu() {
         setMenu(!menu);
     }
+    function displayNev() {
+        if (window.innerWidth < 480) {
+            setMenu(false);
+        } else {
+            setMenu(true);
+        }
+    }
     useEffect(() => {
         const handleResise = () => {
             if (window.innerWidth >= 480) {
@@ -34,30 +41,23 @@ const Navbar = () => {
     return (
         <nav>
             <Link className="mobileMenu flex" onClick={afficherMenu}>
-                <img
-                    src={icoMenu}
-                    className="mobileMenu_img"
-                    alt="icone menu mobile"
-                />
+                <img src={icoMenu} className="mobileMenu_img" alt="icone menu mobile" />
             </Link>
             {currentUser ? (
-                <div
-                    className="nav_bar_connected flex"
-                    style={{ display: menu ? 'flex' : 'none' }}
-                >
+                <div className="nav_bar_connected flex" style={{ display: menu ? 'flex' : 'none' }}>
                     <Link to="/" className="nav-link" onClick={deconnexion}>
                         Se déconnecter
                     </Link>
 
-                    <Link to={'/user/' + currentUser.id} className="nav-link">
+                    <Link to={'/user/' + currentUser.id} onClick={displayNev} className="nav-link">
                         Utilisateur
                     </Link>
 
-                    <Link to="/posts" className="nav-link">
+                    <Link to="/posts" onClick={displayNev} className="nav-link">
                         Accueil
                     </Link>
 
-                    <Link to={'/add'} className="nav-link">
+                    <Link to={'/add'} onClick={displayNev} className="nav-link">
                         Ajouter un Post
                     </Link>
                 </div>
@@ -66,11 +66,11 @@ const Navbar = () => {
                     className="nav_bar_notConnected flex"
                     style={{ display: menu ? 'flex' : 'none' }}
                 >
-                    <Link to={'/signin'} className="nav-link">
+                    <Link to={'/signin'} onClick={displayNev} className="nav-link">
                         Se connecter
                     </Link>
 
-                    <Link to={'/register'} className="nav-link">
+                    <Link to={'/register'} onClick={displayNev} className="nav-link">
                         S'enregistrer
                     </Link>
                 </div>
