@@ -14,10 +14,9 @@ exports.signup = (req, res) => {
         .then(() => {
             res.send({ message: 'Création du compte réussi' });
         })
-        .catch((err) => {
+        .catch(() => {
             res.status(500).send({
-                message:
-                    'Une erreur est survenue pendant la création du compte.',
+                message: 'Une erreur est survenue pendant la création du compte.',
             });
         });
 };
@@ -26,14 +25,9 @@ exports.signin = (req, res) => {
     User.findOne({ where: { email: req.body.email } }) //find user by email
         .then((User) => {
             if (!User) {
-                return res
-                    .status(404)
-                    .send({ message: 'Utilisateur inéxistant' });
+                return res.status(404).send({ message: 'Utilisateur inéxistant' });
             }
-            var passwordIsValid = bcrypt.compareSync(
-                req.body.password,
-                User.password
-            ); //verify password
+            var passwordIsValid = bcrypt.compareSync(req.body.password, User.password); //verify password
             if (!passwordIsValid) {
                 //if doesen't match send error message
                 return res.status(401).send({

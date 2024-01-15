@@ -20,8 +20,7 @@ const vnickname = (value) => {
     if (value.length < 6 || value.length > 20) {
         return (
             <div className="alert alert-danger" role="alert">
-                Votre pseudo dois contenir un minimum de 6 caractères et maximum
-                20.
+                Votre pseudo dois contenir un minimum de 6 caractères et maximum 20.
             </div>
         );
     }
@@ -39,8 +38,7 @@ const vpassword = (value) => {
     if (value.length < 6 || value.length > 25) {
         return (
             <div className="alert alert-danger" role="alert">
-                Votre mot de passe dois contenir un minimum de 6 caractères et
-                maximum 25.
+                Votre mot de passe dois contenir un minimum de 6 caractères et maximum 25.
             </div>
         );
     }
@@ -73,14 +71,12 @@ const Register = () => {
         if (checkBtn.current.context._errors.length === 0) {
             AuthService.register(nickname, email, password)
                 .then((response) => {
-                    setMessage(response);
+                    setMessage(response.message);
                     navigate('/signin');
                 })
                 .catch((error) => {
                     const resMessage =
-                        (error.response &&
-                            error.response.data &&
-                            error.response.data.message) ||
+                        (error.response && error.response.data && error.response.data.message) ||
                         error.message ||
                         error.toString();
                     setMessage(resMessage);
