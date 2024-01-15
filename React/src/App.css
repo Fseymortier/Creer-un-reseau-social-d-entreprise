@@ -26,8 +26,9 @@
 }
 /* ---------BANNER---------- */
 .logo_banner {
-    width: 35%;
-    height: 7em;
+    width: 80%;
+    max-width: 30em;
+    margin: 1em 0;
     object-fit: cover;
 }
 /* ---------container and content post(s)---------- */

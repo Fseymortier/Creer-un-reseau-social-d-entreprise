@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import logo from './GroupomaniaLogos/icon-left-font.svg';
+import logo from './GroupomaniaLogos/icon-left-font2.png';
 import Navbar from './components/Navbar';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
